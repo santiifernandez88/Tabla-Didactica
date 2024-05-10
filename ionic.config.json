@@ -1,0 +1,7 @@
+{
+  "name": "tabladidactica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
