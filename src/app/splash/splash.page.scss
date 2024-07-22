@@ -1,0 +1,94 @@
+.fondo{
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        1% 1% at 100% 0,
+        #ca3f3f 0% 5%,
+        #ffffff 6% 15%,
+        #ca3f3f 16% 25%,
+        #ffffff 26% 35%,
+        #ca3f3f 36% 45%,
+        #ffffff 46% 55%,
+        #ca3f3f 56% 65%,
+        #ffffff 66% 75%,
+        #ca3f3f 76% 85%,
+        #ffffff 86% 95%,
+        #0000 96%
+      ),
+      radial-gradient(
+        50% 50% at 0 100%,
+        #ca3f3f 0% 5%,
+        #ffffff 6% 15%,
+        #ca3f3f 16% 25%,
+        #ffffff 26% 35%,
+        #ca3f3f 36% 45%,
+        #ffffff 46% 55%,
+        #ca3f3f 56% 65%,
+        #ffffff 66% 75%,
+        #ca3f3f 76% 85%,
+        #ffffff 86% 95%,
+        #0000 96%
+      ),
+      radial-gradient(
+        50% 50%,
+        #ca3f3f 0% 5%,
+        #ffffff 6% 15%,
+        #ca3f3f 16% 25%,
+        #ffffff 26% 35%,
+        #ca3f3f 36% 45%,
+        #ffffff 46% 55%,
+        #ca3f3f 56% 65%,
+        #ffffff 66% 75%,
+        #ca3f3f 76% 85%,
+        #ffffff 86% 95%,
+        #0000 96%
+      ),
+      radial-gradient(
+          50% 50%,
+          #ca3f3f 0% 5%,
+          #ffffff 6% 15%,
+          #ca3f3f 16% 25%,
+          #ffffff 26% 35%,
+          #ca3f3f 36% 45%,
+          #ffffff 46% 55%,
+          #ca3f3f 56% 65%,
+          #ffffff 66% 75%,
+          #ca3f3f 76% 85%,
+          #ffffff 86% 95%,
+          #0000 96%
+        )
+        38px 38px;
+    background-size: 76px 76px;
+    background-color: #ca3f3f;
+ }
+ 
+ .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @-webkit-keyframes rotate-scale-up-hor{0%{-webkit-transform:scale(1) rotateX(0);transform:scale(1) rotateX(0)}50%{-webkit-transform:scale(2) rotateX(-180deg);transform:scale(2) rotateX(-180deg)}100%{-webkit-transform:scale(1) rotateX(-360deg);transform:scale(1) rotateX(-360deg)}}@keyframes rotate-scale-up-hor{0%{-webkit-transform:scale(1) rotateX(0);transform:scale(1) rotateX(0)}50%{-webkit-transform:scale(2) rotateX(-180deg);transform:scale(2) rotateX(-180deg)}100%{-webkit-transform:scale(1) rotateX(-360deg);transform:scale(1) rotateX(-360deg)}};
+
+    img{
+        -webkit-animation:rotate-scale-up-hor 1s linear both;animation:rotate-scale-up-hor 1s linear both;
+        height: 160px;
+        margin-top: 30%;
+    }
+   
+    h1{
+      -webkit-animation:rotate-scale-up-hor 1s linear both;animation:rotate-scale-up-hor 1s linear both;
+        margin-top: 20%;
+        color: white;
+        background-color: #ca3f3f;
+        font-family: cursive;
+    }
+    h2{
+      -webkit-animation:rotate-scale-up-hor 1s linear both;animation:rotate-scale-up-hor 1s linear both;  
+        margin-top: 30%;
+        color: white;
+        background-color: #ca3f3f;
+        font-family: cursive;
+    }
+ }
+    

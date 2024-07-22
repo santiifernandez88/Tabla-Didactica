@@ -1,20 +1,114 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar color="black">
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="9">
+        <ion-title>
+          <br>
+          TABLA DIDÁCTICA
+        </ion-title>
+      </ion-col>
+      <ion-col size="2" sizeMd="3" class="ion-align-items-end">
+        <button class="Btn" (click)="CloseSession()">
+          <div class="sign">
+            <svg viewBox="0 0 512 512">
+              <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+            </svg>
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-text-center">
+  <div class="fondo">
+    <ion-loading trigger="cerrar" message="Cerrando..." [duration]="3000" spinner="circles"></ion-loading>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+      <ion-fab-button color="success">
+        <img src="assets/{{idiomaSeleccionado()}}.png" alt="esp">
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button (click)="selectIdioma('esp')" [ngClass]="selectedIdioma === 'esp' ? 'selected' : 'notselected'" >
+          <img src="assets/españa.png" alt="esp">
+        </ion-fab-button>
+        <ion-fab-button (click)="selectIdioma('en')" [ngClass]="selectedIdioma === 'en' ? 'selected' : 'notselected'" >
+          <img src="assets/ingles.png" alt="en">
+        </ion-fab-button>
+        <ion-fab-button (click)="selectIdioma('por')" [ngClass]="selectedIdioma === 'por' ? 'selected' : 'notselected'" >
+          <img src="assets/portugal.png" alt="por">
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+    
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button color="success">
+        <img src="assets/{{selectedTema}}.png" alt="esp">
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button (click)="selectTema('colores')" [ngClass]="selectedTema === 'colores' ? 'selected' : 'notselected'" >
+          <img src="assets/colores.png" alt="colores">
+        </ion-fab-button>
+        <ion-fab-button (click)="selectTema('numeros')" [ngClass]="selectedTema === 'numeros' ? 'selected' : 'notselected'" >
+          <img src="assets/numeros.png" alt="numeros">
+        </ion-fab-button>
+        <ion-fab-button (click)="selectTema('animales')" [ngClass]="selectedTema === 'animales' ? 'selected' : 'notselected'">
+          <img src="assets/animales.png" alt="animales">
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ng-container *ngIf="selectedTema && selectedIdioma">
+      <div class="container-button">
+        <ion-button class="button-ion" (click)="play(selectedTema === 'animales' ? 'gato' : selectedTema === 'numeros' ? 'uno' : 'azul')">
+          <img *ngIf="selectedTema === 'animales'" src="assets/gato.png" alt="gato">
+          <img *ngIf="selectedTema === 'numeros'" src="assets/uno.png" alt="uno">
+          <img *ngIf="selectedTema === 'colores'" src="assets/azul.png" alt="azul">
+        </ion-button>
+    
+    
+        <ion-button class="button-ion" (click)="play(selectedTema === 'animales' ? 'pato' : selectedTema === 'numeros' ? 'dos' : 'amarillo')">
+          <img *ngIf="selectedTema === 'animales'" src="assets/pato.png" alt="pato">
+          <img *ngIf="selectedTema === 'numeros'" src="assets/dos.png" alt="dos">
+          <img *ngIf="selectedTema === 'colores'" src="assets/amarillo.png" alt="amarillo">
+        </ion-button>
+   
+   
+        <ion-button class="button-ion" (click)="play(selectedTema === 'animales' ? 'cebra' : selectedTema === 'numeros' ? 'tres' : 'rojo')">
+          <img *ngIf="selectedTema === 'animales'" src="assets/zebra.png" alt="cebra">
+          <img *ngIf="selectedTema === 'numeros'" src="assets/tres.png" alt="tres">
+          <img *ngIf="selectedTema === 'colores'" src="assets/rojo.png" alt="rojo">
+        </ion-button>
+  
+    
+        <ion-button class="button-ion" (click)="play(selectedTema === 'animales' ? 'jirafa' : selectedTema === 'numeros' ? 'cuatro' : 'verde')">
+          <img *ngIf="selectedTema === 'animales'" src="assets/jirafa.png" alt="jirafa">
+          <img *ngIf="selectedTema === 'numeros'" src="assets/cuatro.png" alt="cuatro">
+          <img *ngIf="selectedTema === 'colores'" src="assets/verde.png" alt="verde">
+        </ion-button>
+   
+  
+        <ion-button class="button-ion" (click)="play(selectedTema === 'animales' ? 'lobo' : selectedTema === 'numeros' ? 'cinco' : 'violeta')">
+          <img *ngIf="selectedTema === 'animales'" src="assets/lobo.png" alt="lobo">
+          <img *ngIf="selectedTema === 'numeros'" src="assets/cinco.png" alt="cinco">
+          <img *ngIf="selectedTema === 'colores'" src="assets/violeta.png" alt="violeta">
+        </ion-button>
+      </div>
+  </ng-container>
+          
+    
+        
+          
+    
+        
+          
+     
+  
+        
+
+      <ng-container *ngIf="!selectedTema || !selectedIdioma">
+        <h1 *ngIf="!selectedTema && !selectedIdioma">NO SELECCIONASTE IDIOMA NI TEMA</h1>
+        <h1 *ngIf="!selectedTema && selectedIdioma">NO SELECCIONASTE TEMA</h1>
+        <h1 *ngIf="selectedTema && !selectedIdioma">NO SELECCIONASTE IDIOMA</h1>
+      </ng-container>
   </div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
   {
@@ -7,7 +8,15 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'splash',
+    loadComponent: () => import('./splash/splash.page').then( m => m.SplashPage)
   },
 ];

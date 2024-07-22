@@ -1,27 +1,174 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.fondo {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      50% 50% at 100% 0,
+      #ca3f3f 0% 5%,
+      #ffffff 6% 15%,
+      #ca3f3f 16% 25%,
+      #ffffff 26% 35%,
+      #ca3f3f 36% 45%,
+      #ffffff 46% 55%,
+      #ca3f3f 56% 65%,
+      #ffffff 66% 75%,
+      #ca3f3f 76% 85%,
+      #ffffff 86% 95%,
+      #0000 96%
+    ),
+    radial-gradient(
+      50% 50% at 0 100%,
+      #ca3f3f 0% 5%,
+      #ffffff 6% 15%,
+      #ca3f3f 16% 25%,
+      #ffffff 26% 35%,
+      #ca3f3f 36% 45%,
+      #ffffff 46% 55%,
+      #ca3f3f 56% 65%,
+      #ffffff 66% 75%,
+      #ca3f3f 76% 85%,
+      #ffffff 86% 95%,
+      #0000 96%
+    ),
+    radial-gradient(
+      50% 50%,
+      #ca3f3f 0% 5%,
+      #ffffff 6% 15%,
+      #ca3f3f 16% 25%,
+      #ffffff 26% 35%,
+      #ca3f3f 36% 45%,
+      #ffffff 46% 55%,
+      #ca3f3f 56% 65%,
+      #ffffff 66% 75%,
+      #ca3f3f 76% 85%,
+      #ffffff 86% 95%,
+      #0000 96%
+    ),
+    radial-gradient(
+        50% 50%,
+        #ca3f3f 0% 5%,
+        #ffffff 6% 15%,
+        #ca3f3f 16% 25%,
+        #ffffff 26% 35%,
+        #ca3f3f 36% 45%,
+        #ffffff 46% 55%,
+        #ca3f3f 56% 65%,
+        #ffffff 66% 75%,
+        #ca3f3f 76% 85%,
+        #ffffff 86% 95%,
+        #0000 96%
+      )
+      38px 38px;
+  background-size: 76px 76px;
+  background-color: #ca3f3f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-toolbar {
+  background-color: black;
+  color: #da9a9a;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.title {
+  font-family: cursive;
+  font-weight: 400;
+  white-space: nowrap; /* Asegura que el texto no se divida en múltiples líneas */
 }
 
-#container a {
-  text-decoration: none;
+h1 {
+  background-color: black;
+  color: #da9a9a;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+}
+
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra la imagen dentro del botón */
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background-color: #da9a9a;
+  margin-left: auto; /* Asegura que el botón esté pegado a la derecha */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.Btn:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sign {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: black;
+}
+
+.button-ion {
+  --background: #da9a9a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease-in-out;
+  width: 80px; 
+  height: 80px; 
+  padding: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-ion img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.button-ion:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.selected {
+  --background: var(--ion-color-success);
+}
+
+.notselected {
+  --background: #da9a9a;
+}
+
+.container-button {
+  display: grid;
+  grid-template-columns: 1fr 1fr; // 2 columnas de igual tamaño
+  grid-template-rows: repeat(2, 1fr) 0.8fr; // 2 filas iguales y 1 más pequeña
+  width: 100%;
+  height: 100%;
+  
+  ion-button {
+    width: 100%; // Cada botón ocupa todo el ancho de su celda
+    height: 100%; // Cada botón ocupa todo el alto de su celda
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Aplica estilo solo al último botón
+  ion-button:nth-child(5) {
+    grid-column: span 2; // Hace que ocupe las dos columnas
+    justify-self: center; // Centra el botón horizontalmente
+    align-self: center; // Centra el botón verticalmente
+    height: 100%; // Hace que sea más pequeño que los otros botones
+  }
 }
